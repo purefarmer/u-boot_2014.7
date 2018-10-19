@@ -19,7 +19,8 @@
  */
 #define CONFIG_ARM920T		/* This is an ARM920T Core */
 #define CONFIG_S3C24X0		/* in a SAMSUNG S3C24x0-type SoC */
-#define CONFIG_S3C2410		/* specifically a SAMSUNG S3C2410 SoC */
+//#define CONFIG_S3C2410		/* specifically a SAMSUNG S3C2410 SoC */
+#define CONFIG_S3C2440		/* specifically a SAMSUNG S3C2440 SoC */
 #define CONFIG_SMDK2410		/* on a SAMSUNG SMDK2410 Board */
 
 #define CONFIG_SYS_TEXT_BASE	0x0
@@ -81,7 +82,7 @@
 #define CONFIG_CMD_DATE
 #define CONFIG_CMD_DHCP
 #define CONFIG_CMD_ELF
-#define CONFIG_CMD_NAND
+//#define CONFIG_CMD_NAND
 #define CONFIG_CMD_PING
 #define CONFIG_CMD_REGINFO
 #define CONFIG_CMD_USB
@@ -187,7 +188,7 @@
 #define CONFIG_CMD_MTDPARTS
 #define CONFIG_MTD_DEVICE
 #define CONFIG_MTD_PARTITIONS
-#define CONFIG_YAFFS2
+//#define CONFIG_YAFFS2
 #define CONFIG_RBTREE
 
 /* additions for new relocation code, must be added to all boards */

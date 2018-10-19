@@ -59,10 +59,11 @@ int board_early_init_f(void)
 
 	/* to reduce PLL lock time, adjust the LOCKTIME register */
 	writel(0xFFFFFF, &clk_power->locktime);
-
+#if 0
 	/* configure MPLL */
 	writel((M_MDIV << 12) + (M_PDIV << 4) + M_SDIV,
 	       &clk_power->mpllcon);
+#endif
 
 	/* some delay between MPLL and UPLL */
 	pll_delay(4000);
