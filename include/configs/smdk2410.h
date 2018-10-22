@@ -13,6 +13,8 @@
 #ifndef __CONFIG_H
 #define __CONFIG_H
 
+//#define DEBUG
+
 /*
  * High Level Configuration Options
  * (easy to change)
@@ -151,7 +153,7 @@
 
 #define CONFIG_SYS_MAX_FLASH_BANKS	1
 #define CONFIG_SYS_FLASH_BANKS_LIST     { CONFIG_SYS_FLASH_BASE }
-#define CONFIG_SYS_MAX_FLASH_SECT	(19)
+#define CONFIG_SYS_MAX_FLASH_SECT	(64)
 
 #define CONFIG_ENV_ADDR			(CONFIG_SYS_FLASH_BASE + 0x070000)
 #define CONFIG_ENV_IS_IN_FLASH
