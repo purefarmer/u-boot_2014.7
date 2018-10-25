@@ -39,9 +39,18 @@
 /*
  * Hardware drivers
  */
+#if 0
 #define CONFIG_CS8900		/* we have a CS8900 on-board */
 #define CONFIG_CS8900_BASE	0x19000300
 #define CONFIG_CS8900_BUS16	/* the Linux driver does accesses as shorts */
+#else
+#define CONFIG_NET_RETRY_COUNT      20
+#define CONFIG_DRIVER_DM9000        1
+#define CONFIG_DM9000_BASE      	0x20000000
+#define DM9000_IO           		CONFIG_DM9000_BASE
+#define DM9000_DATA         		(CONFIG_DM9000_BASE + 0x4)
+#define CONFIG_DM9000_USE_16BIT     1
+#endif
 
 /*
  * select serial console configuration
@@ -81,13 +90,13 @@
 
 #define CONFIG_CMD_BSP
 #define CONFIG_CMD_CACHE
-#define CONFIG_CMD_DATE
-#define CONFIG_CMD_DHCP
+//#define CONFIG_CMD_DATE
+//#define CONFIG_CMD_DHCP
 #define CONFIG_CMD_ELF
-//#define CONFIG_CMD_NAND
+#define CONFIG_CMD_NAND
 #define CONFIG_CMD_PING
 #define CONFIG_CMD_REGINFO
-#define CONFIG_CMD_USB
+//#define CONFIG_CMD_USB
 
 #define CONFIG_SYS_HUSH_PARSER
 #define CONFIG_CMDLINE_EDITING
@@ -99,8 +108,8 @@
 #define CONFIG_ZERO_BOOTDELAY_CHECK
 
 #define CONFIG_NETMASK		255.255.255.0
-#define CONFIG_IPADDR		10.0.0.110
-#define CONFIG_SERVERIP		10.0.0.1
+#define CONFIG_IPADDR		192.168.199.250
+#define CONFIG_SERVERIP		192.168.199.1
 
 #if defined(CONFIG_CMD_KGDB)
 #define CONFIG_KGDB_BAUDRATE	115200	/* speed to run kgdb serial port */
@@ -110,7 +119,7 @@
  * Miscellaneous configurable options
  */
 #define CONFIG_SYS_LONGHELP		/* undef to save memory */
-#define CONFIG_SYS_PROMPT	"SMDK2410 # "
+#define CONFIG_SYS_PROMPT	"JZ2440 # "
 #define CONFIG_SYS_CBSIZE	256
 /* Print Buffer Size */
 #define CONFIG_SYS_PBSIZE	(CONFIG_SYS_CBSIZE + \
@@ -183,11 +192,11 @@
 /*
  * File system
  */
-#define CONFIG_CMD_FAT
-#define CONFIG_CMD_EXT2
-#define CONFIG_CMD_UBI
-#define CONFIG_CMD_UBIFS
-#define CONFIG_CMD_MTDPARTS
+//#define CONFIG_CMD_FAT
+//#define CONFIG_CMD_EXT2
+//#define CONFIG_CMD_UBI
+//#define CONFIG_CMD_UBIFS
+//#define CONFIG_CMD_MTDPARTS
 #define CONFIG_MTD_DEVICE
 #define CONFIG_MTD_PARTITIONS
 //#define CONFIG_YAFFS2
