@@ -13,7 +13,7 @@
 #ifndef __CONFIG_H
 #define __CONFIG_H
 
-#define DEBUG
+//#define DEBUG
 
 /*
  * High Level Configuration Options
@@ -70,7 +70,7 @@
 /************************************************************
  * RTC
  ************************************************************/
-#define CONFIG_RTC_S3C24X0
+//#define CONFIG_RTC_S3C24X0
 
 
 #define CONFIG_BAUDRATE		115200
@@ -78,10 +78,10 @@
 /*
  * BOOTP options
  */
-#define CONFIG_BOOTP_BOOTFILESIZE
-#define CONFIG_BOOTP_BOOTPATH
-#define CONFIG_BOOTP_GATEWAY
-#define CONFIG_BOOTP_HOSTNAME
+//#define CONFIG_BOOTP_BOOTFILESIZE
+//#define CONFIG_BOOTP_BOOTPATH
+//#define CONFIG_BOOTP_GATEWAY
+//#define CONFIG_BOOTP_HOSTNAME
 
 /*
  * Command line configuration.
@@ -110,6 +110,7 @@
 #define CONFIG_NETMASK		255.255.255.0
 #define CONFIG_IPADDR		192.168.199.250
 #define CONFIG_SERVERIP		192.168.199.1
+#define CONFIG_ETHADDR		30:ae:7b:16:ff:30
 
 #if defined(CONFIG_CMD_KGDB)
 #define CONFIG_KGDB_BAUDRATE	115200	/* speed to run kgdb serial port */
@@ -165,8 +166,11 @@
 #define CONFIG_SYS_MAX_FLASH_SECT	(64)
 
 #define CONFIG_ENV_ADDR			(CONFIG_SYS_FLASH_BASE + 0x070000)
-#define CONFIG_ENV_IS_IN_FLASH
-#define CONFIG_ENV_SIZE			0x10000
+//#define CONFIG_ENV_IS_IN_FLASH
+//#define CONFIG_ENV_SIZE			0x20000
+#define CONFIG_ENV_IS_IN_NAND	1
+#define CONFIG_ENV_OFFSET		0x40000
+#define CONFIG_ENV_SIZE			0x20000
 /* allow to overwrite serial and ethaddr */
 #define CONFIG_ENV_OVERWRITE
 
@@ -197,10 +201,10 @@
 //#define CONFIG_CMD_UBI
 //#define CONFIG_CMD_UBIFS
 //#define CONFIG_CMD_MTDPARTS
-#define CONFIG_MTD_DEVICE
-#define CONFIG_MTD_PARTITIONS
+//#define CONFIG_MTD_DEVICE
+//#define CONFIG_MTD_PARTITIONS
 //#define CONFIG_YAFFS2
-#define CONFIG_RBTREE
+//#define CONFIG_RBTREE
 
 /* additions for new relocation code, must be added to all boards */
 #define CONFIG_SYS_SDRAM_BASE	PHYS_SDRAM_1
