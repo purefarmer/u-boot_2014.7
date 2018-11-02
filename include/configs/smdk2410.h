@@ -96,16 +96,20 @@
 #define CONFIG_CMD_NAND
 #define CONFIG_CMD_PING
 #define CONFIG_CMD_REGINFO
+#define CONFIG_CMD_JFFS2
 //#define CONFIG_CMD_USB
 
 #define CONFIG_SYS_HUSH_PARSER
 #define CONFIG_CMDLINE_EDITING
+
 
 /* autoboot */
 #define CONFIG_BOOTDELAY	5
 #define CONFIG_BOOT_RETRY_TIME	-1
 #define CONFIG_RESET_TO_RETRY
 #define CONFIG_ZERO_BOOTDELAY_CHECK
+#define CONFIG_BOOTARGS     "noinitrd root=/dev/mtdblock3 init=/linuxrc console=ttySAC0"
+#define CONFIG_BOOTCOMMAND  "nand read.jffs2 0x30007FC0 kernel; bootm 0x30007FC0"
 
 #define CONFIG_NETMASK		255.255.255.0
 #define CONFIG_IPADDR		192.168.199.250
@@ -136,9 +140,9 @@
 #define CONFIG_SYS_LOAD_ADDR		0x30800000
 
 /* support additional compression methods */
-#define CONFIG_BZIP2
-#define CONFIG_LZO
-#define CONFIG_LZMA
+//#define CONFIG_BZIP2
+//#define CONFIG_LZO
+//#define CONFIG_LZMA
 
 /*-----------------------------------------------------------------------
  * Physical Memory Map
@@ -200,11 +204,22 @@
 //#define CONFIG_CMD_EXT2
 //#define CONFIG_CMD_UBI
 //#define CONFIG_CMD_UBIFS
-//#define CONFIG_CMD_MTDPARTS
-//#define CONFIG_MTD_DEVICE
-//#define CONFIG_MTD_PARTITIONS
+#define CONFIG_CMD_MTDPARTS
+#define CONFIG_MTD_DEVICE
+#define CONFIG_MTD_PARTITIONS
 //#define CONFIG_YAFFS2
 //#define CONFIG_RBTREE
+
+#define MTDIDS_DEFAULT "nand0=nandflash0"
+#define MTDPARTS_DEFAULT "mtdparts=nandflash0:256k@0(bootloader)," \
+	                            			 "128k(params)," \
+                            				 "2m(kernel)," \
+                            				 "-(root)"
+
+#define CONFIG_EXTRA_ENV_SETTINGS   "mtdids="    MTDIDS_DEFAULT            "\0" \
+    								"mtdparts="    MTDPARTS_DEFAULT        "\0"
+
+
 
 /* additions for new relocation code, must be added to all boards */
 #define CONFIG_SYS_SDRAM_BASE	PHYS_SDRAM_1
